@@ -1,8 +1,8 @@
 import { IExtensionContext } from '@mtbird/shared';
-import Example from './components/Example';
+import ExtensionMarketModal from './components/ExtensionMarketModal';
 
 const activity = (context: IExtensionContext) => {
-  context.registerFeature('enterprise.market.modal', Example);
+  context.registerFeature('enterprise.market.modal', ExtensionMarketModal);
 };
 
 export default activity;

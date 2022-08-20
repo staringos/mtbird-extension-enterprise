@@ -27,15 +27,14 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "peerDependencies": {
-    "@mtbird/renderer-web": "^0.0.1",
-    "@mtbird/shared": "^0.0.1-beta.4"
   },
   "dependencies": {},
   "devDependencies": {
-    "@mtbird/cli": "^0.0.1-beta.6",
     "@types/react": "^18.0.17",
     "antd": "^4.22.3",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "@mtbird/shared": "^0.0.1-beta.12",
+    "@mtbird/cli": "^0.0.1-beta.12"
   }
 }

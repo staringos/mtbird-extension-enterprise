@@ -12,10 +12,11 @@
           "sort": 3,
           "params": {
               "icon": "mtbird-icon mtbird-market",
-              "name": "拓展市场"
+              "name": "拓展市场",
+              "width": "80%"
           },
           "link": "modal",
-          "modal": "enterprise.market.modal"
+          "feature": "enterprise.market.modal"
         }
     ]
   }
