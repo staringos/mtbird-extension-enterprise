@@ -1860,10 +1860,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@mtbird/cli@^0.0.1-beta.12":
-  version "0.0.1-beta.12"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcli/-/cli-0.0.1-beta.12.tgz#f218ca8ce653d9086783cbf122674923cdd9cafd"
-  integrity sha512-EZABOwyy78F9du3yOqPDYYb9IFjuE1fWnn8IPoGxY3i/P4ADluJUqpzzBJacXjf9UMeOYjX9McxHYgFiVceW1w==
+"@mtbird/cli@^0.0.1-beta.16":
+  version "0.0.1-beta.16"
+  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcli/-/cli-0.0.1-beta.16.tgz#5e95f49009d467e132286bc80b8db9ff43e992fe"
+  integrity sha512-kIYIc4B6ReEOneN8yh+WEx48zT2g5+PaSDoO8GkPY9ddVft5C/dTBd4kYCPvr5507i9CwpGuz+ygmTDntSqvRw==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/plugin-proposal-class-properties" "^7.18.6"
@@ -1872,7 +1872,7 @@
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-syntax-jsx" "^7.18.6"
     "@babel/preset-react" "^7.17.12"
-    "@mtbird/core" "^0.0.1-beta.12"
+    "@mtbird/core" "^0.0.1-beta.16"
     "@rollup/plugin-babel" "^5.3.1"
     "@rollup/plugin-commonjs" "^22.0.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -1937,15 +1937,15 @@
     typescript "^4.6.4"
     yargs "^17.4.1"
 
-"@mtbird/core@^0.0.1-beta.12":
-  version "0.0.1-beta.12"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcore/-/core-0.0.1-beta.12.tgz#06d7a94e1314565b7a90dadba56ceb5c62d5b133"
-  integrity sha512-e0S+RwMHGTcLlwLuiwPKr4VZP1QNci8qy45q251ZmznL257LO0AleHctKzzs+RLYSSM4ZobSyjRFxEC7dqRsNQ==
+"@mtbird/core@^0.0.1-beta.16":
+  version "0.0.1-beta.16"
+  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fcore/-/core-0.0.1-beta.16.tgz#34d3a1bf8f37ed6a11fbda39d70de4ead66718f4"
+  integrity sha512-YHdwHT8GzRo4aj1GLeY/SrMryJRS7b5TvDLIc7pY+qX2as0qPwJikJxfkWdwn7LShZvj3/oB+wwvMpybrseucA==
 
-"@mtbird/shared@^0.0.1-beta.12":
-  version "0.0.1-beta.12"
-  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fshared/-/shared-0.0.1-beta.12.tgz#43b953e7f4bda248d905b8143e13c4d259e623c6"
-  integrity sha512-bgFVaUIGW+35z3HjmORbCpI3/Zp/TdMlOgx58IFxSfBvWcYdDc9YeGpj/+VJaXPn5ghUGLY7OorjlaOHHOTxTQ==
+"@mtbird/shared@^0.0.1-beta.16":
+  version "0.0.1-beta.16"
+  resolved "https://mirrors.cloud.tencent.com/npm/@mtbird%2fshared/-/shared-0.0.1-beta.16.tgz#c3d6512163c541b4577e339e2bb99fca5fc1d9bb"
+  integrity sha512-/IWhP9u24muiWm1nbnRNNYShmxJooEZDICOOwmoyRB2stjJdxq2ikJqhbMK3MDfGV5Fdgzw6a6+H8jw63zTtIg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

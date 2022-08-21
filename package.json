@@ -1,6 +1,6 @@
 {
   "name": "mtbird-extension-enterprise",
-  "version": "0.0.1-beta.5",
+  "version": "0.0.1-beta.7",
   "description": "星搭企业级套件",
   "homepage": "",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "start": "mtbird start",
     "serve": "NODE_ENV=production mtbird serve --port 3333",
     "build": "NODE_ENV=production mtbird build",
+    "publish": "mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2MTA0NDE4NCwiZXhwIjoxNjYxNjQ4OTg0fQ.Y-IWAs2kiHfVem8Mw-MsSvz3O0iehX8gogDxby9ZS2w",
     "link": "npm link ../../../mtbird-saas/node_modules/react",
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -34,7 +35,7 @@
     "antd": "^4.22.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "@mtbird/shared": "^0.0.1-beta.12",
-    "@mtbird/cli": "^0.0.1-beta.12"
+    "@mtbird/shared": "^0.0.1-beta.16",
+    "@mtbird/cli": "^0.0.1-beta.16"
   }
 }

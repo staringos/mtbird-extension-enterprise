@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Button, Modal, message} from 'antd'
+import {Card, Button, Modal, message, Tag} from 'antd'
 import { IExtensionContext, IExtensionDTO } from '@mtbird/shared/dist/types'
 import styles from './style.module.less'
 
@@ -20,17 +20,21 @@ const ExtensionCard = ({extension, context, refresh}: IProps) => {
       okText: '确认',
       cancelText: '取消',
       async onOk() {
-        const appId = context.page?.['appId']
-        if (!appId) return message.error('参数不全!');
-        await context.request.post(`${process.env.API_URL}/app/${appId}/extension`, {
-          extensionId: extension.id
-        }, {
-          headers: {
-            Authorization: 'Beare ' + context.storage.getItem('AUTH_TOKEN')
-          }
-        })
-        await refresh()
-        message.success('拓展安装成功');
+        try {
+          const appId = context.page?.['appId'];
+          if (!appId) return message.error('参数不全!');
+          await context.request.post(`${process.env.API_URL}/app/${appId}/extension`, {
+            extensionId: extension.id
+          }, {
+            headers: {
+              Authorization: 'Beare ' + context.storage.getItem('AUTH_TOKEN')
+            }
+          });
+          message.success('拓展安装成功');
+          context.router.refresh();
+        } catch(e) {
+          message.success(e.response?.data?.msg || e.message);
+        }
       }
     });
   }
@@ -42,18 +46,22 @@ const ExtensionCard = ({extension, context, refresh}: IProps) => {
       okText: '确认',
       cancelText: '取消',
       async onOk() {
-        const appId = context.page?.['appId']
-        if (!appId) return message.error('参数不全!');
-        await context.request.delete(`${process.env.API_URL}/app/${appId}/extension`, {
-          data: {
-            extensionId: extension.id
-          },
-          headers: {
-            Authorization: 'Beare ' + context.storage.getItem('AUTH_TOKEN')
-          }
-        })
-        refresh()
-        message.success('拓展卸载成功');
+        try {
+          const appId = context.page?.['appId']
+          if (!appId) return message.error('参数不全!')
+          await context.request.delete(`${process.env.API_URL}/app/${appId}/extension`, {
+            data: {
+              extensionId: extension.id
+            },
+            headers: {
+              Authorization: 'Beare ' + context.storage.getItem('AUTH_TOKEN')
+            }
+          })
+          message.success('拓展卸载成功!')
+          context.router.refresh()
+        } catch(e) {
+          message.success(e.response?.data?.msg || e.message);
+        }
       },
     });
   }
@@ -66,7 +74,8 @@ const ExtensionCard = ({extension, context, refresh}: IProps) => {
       cover={<img style={{ width: 120, height: 100 }} alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
     >
       <Meta className={styles.extensionMeta} title={extension.title} description={extension.desc} />
-      {extension.hasInstalled ? (<Button danger size='small' onClick={handleUninstall}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
+      {extension.hasInstalled ? (<Button danger size='small' onClick={handleUninstall} disabled={extension.isUninstallable}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
+      <Tag className={styles.extensionTag} title="官方" color="green" icon={<i className={'mtbird-icon mtbird-safetycertificate ' + styles.extensionTagIcon} />}>官方</Tag>
     </Card>
   )
 }
