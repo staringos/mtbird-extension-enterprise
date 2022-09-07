@@ -22,7 +22,7 @@
     "start": "mtbird start",
     "serve": "NODE_ENV=production mtbird serve --port 3333",
     "build": "NODE_ENV=production mtbird build",
-    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2MTY5MTY0MCwiZXhwIjoxNjYyMjk2NDQwfQ.NUxbT_-TpJG1hMQ3V1bifNpsQgJ-UPtQFZs1zMy9hT8",
+    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2MjUxODY4MiwiZXhwIjoxNjYzMTIzNDgyfQ.bWkjMlMM6wthFfwY-hPx2EF0Mcg9FTB_wENZNPkmaFU",
     "link": "npm link ../../../mtbird-saas/node_modules/react",
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
