@@ -1,0 +1,54 @@
+.componentTreeNode {
+  padding: 0 !important;
+  height: 20px !important;
+  
+  .title {
+    display: inline;
+    min-height: 20px;
+    padding: 0 4px 0 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+      margin: 0 4px 0 0;
+    }
+
+    .action {
+      width: 20px;
+      height: 20px;
+      display: inline;
+      margin: 0 2px 0 0;
+    }
+  }
+
+  span {
+    height: 20px  !important;
+    line-height: 20px !important;
+    min-height: 20px !important;
+  }
+
+  :global {
+    .ant-tree-switcher {
+      color: #fff !important;
+      background-color: transparent !important;
+      width: 18px;
+    }
+
+    .ant-tree-node-content-wrapper {
+      color: #fff !important;
+      margin: 0 40px 0 0;
+
+      .ant-tree-title {
+        height: 20px;
+      }
+    }  
+    .ant-tree-node-selected {
+      background-color: rgb(78, 105, 143) !important;
+    }
+
+    .ant-tree-node-content-wrapper:hover {
+      background-color: rgba(78, 105, 143) !important;
+    }
+  }
+}

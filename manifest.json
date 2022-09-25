@@ -18,6 +18,15 @@
           "link": "modal",
           "feature": "enterprise.market.modal"
         }
+    ],
+    "toolbars": [
+      {
+        "params": {
+          "name": "结构"
+        },
+        "link": "feature",
+        "feature": "enterprise.struct-tree.feature"
+      }
     ]
   }
 }

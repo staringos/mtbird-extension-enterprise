@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Input, Radio, Pagination} from 'antd'
 import styles from './style.module.less'
-import {IExtensionContext, IExtensionDTO} from '@mtbird/shared'
+import {IExtensionContext, IExtensionDTO, IComponentInstance} from '@mtbird/shared'
 import ExtensionCard from '../ExtensionCard';
 const { Search } = Input;
 
