@@ -1,0 +1,30 @@
+.templatePanel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 10px 5px;
+
+  .templatePanelList {
+    display: grid;
+    flex: 1;
+    grid-gap: 5px;
+    grid-template-columns: 65px 65px;
+    grid-template-rows: repeat(auto-fill, 125px);
+  }
+
+  :global {
+    .anticon, .ant-pagination-item, .nofollow {
+      color: var(--color-text-4);
+    }
+
+    .ant-pagination-item {
+      a {
+        color: var(--color-text-4);
+      }
+    }
+
+    .ant-pagination-item-active {
+      background-color: var(--mtbird-primary-6);
+    }
+  }
+}

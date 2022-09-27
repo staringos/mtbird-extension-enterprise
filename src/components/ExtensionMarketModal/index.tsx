@@ -72,7 +72,7 @@ const ExtensionMarketModal = ({ context }: { context: IExtensionContext }) => {
         </Radio.Group>
       </div>
       <div className={styles.extensionList}>
-        {data.data.map(cur => (
+        {data?.data?.map(cur => (
           <ExtensionCard key={cur.id} extension={cur} context={context} refresh={toSearch} />
         ))}
       </div>

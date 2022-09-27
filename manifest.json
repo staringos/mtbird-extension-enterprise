@@ -26,6 +26,12 @@
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
+      }, {
+        "params": {
+          "name": "模版"
+        },
+        "link": "feature",
+        "feature": "enterprise.template-panel.feature"
       }
     ]
   }

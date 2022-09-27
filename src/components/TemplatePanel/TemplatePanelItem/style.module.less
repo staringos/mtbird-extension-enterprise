@@ -1,0 +1,45 @@
+.templatePanelItem {
+  position: relative;
+  // height: 130px;
+
+  .avatarImage {
+    height: 80px;
+  }
+
+  :global {
+    .ant-card-body {
+      padding: 5px;
+    }
+
+    .ant-card-meta-title {
+      font-size: 12px;
+      white-space: unset;
+      height: 33px;
+    }
+
+    .ant-card-meta-description {
+      font-size: 12px;
+    }
+  }
+
+  .deleteButton {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    border-radius: 15px;
+    display: flex;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    text-align: center;
+  }
+
+  &:hover {
+    .deleteButton {
+      display: block;
+    }
+  }
+}
