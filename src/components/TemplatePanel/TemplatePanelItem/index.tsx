@@ -1,13 +1,7 @@
 import React from 'react'
 import {Card} from 'antd'
 import styles from './style.module.less'
-
-export interface ITemplateDTO {
-  id: string;
-  name: string;
-  avatar: string;
-  content: any;
-}
+import {ITemplateDTO} from '@mtbird/shared'
 
 interface IProps {
   onSelect: (template: ITemplateDTO) => void;

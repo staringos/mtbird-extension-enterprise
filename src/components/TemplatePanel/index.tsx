@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {Pagination, Radio, Modal, message} from 'antd'
 import styles from './style.module.less'
-import TemplatePanelItem, { ITemplateDTO } from './TemplatePanelItem';
+import TemplatePanelItem from './TemplatePanelItem';
+import { ITemplateDTO } from '@mtbird/shared';
 import { deleteTemplate, getTemplateList } from 'src/services/template';
 import { IExtensionContext } from '@mtbird/shared';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
@@ -43,6 +44,10 @@ const TemplatePanel = ({context}: IProps) => {
   useEffect(() => {
     refresh()
   }, [scope, pagination])
+
+  context.eventHub.on(context.EVENT_KEYS.TEMPLATE_ADDED, () => {
+    refresh()
+  })
 
   const handlePageChange = (pageNum: number) => {
     setPagination({

@@ -1946,7 +1946,7 @@
 
 "@mtbird/core@^0.0.1-beta.34":
   version "0.0.1-beta.34"
-  resolved "https://registry.npmjs.org/@mtbird/core/-/core-0.0.1-beta.34.tgz#dbb61228fb59daa671f83cbc91ff9af8705718ac"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.1-beta.34.tgz#dbb61228fb59daa671f83cbc91ff9af8705718ac"
   integrity sha512-HuWgHygSSMbM1uka5D3mKhlz6w3/GDwp8QAs5MY4MrKn7AKmajrpPi0TiV6HRkGIVxnR3rHa8iAPGzAYEHaeXg==
   dependencies:
     nanoid "^4.0.0"
