@@ -45,9 +45,12 @@ const TemplatePanel = ({context}: IProps) => {
     refresh()
   }, [scope, pagination])
 
-  context.eventHub.on(context.EVENT_KEYS.TEMPLATE_ADDED, () => {
-    refresh()
-  })
+  useEffect(() => {
+    context.eventHub.on(context.EVENT_KEYS.TEMPLATE_ADDED, refresh)
+    return () => {
+      context.eventHub.off(context.EVENT_KEYS.TEMPLATE_ADDED, refresh)
+    }
+  }, [])
 
   const handlePageChange = (pageNum: number) => {
     setPagination({
