@@ -71,11 +71,13 @@ const ExtensionCard = ({extension, context, refresh}: IProps) => {
       className={styles.extensionCard}
       hoverable
       style={{ width: 120 }}
-      cover={<img style={{ width: 120, height: 100 }} alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+      cover={<img style={{ width: 120, height: 100 }} alt="example" src={extension.avatar || 'https://mtbird-cdn.staringos.com/app-app.png'} />}
     >
       <Meta className={styles.extensionMeta} title={extension.title} description={extension.desc} />
-      {extension.hasInstalled ? (<Button danger size='small' onClick={handleUninstall} disabled={extension.isUninstallable}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
-      <Tag className={styles.extensionTag} title="官方" color="green" icon={<i className={'mtbird-icon mtbird-safetycertificate ' + styles.extensionTagIcon} />}>官方</Tag>
+      <div style={{marginTop: '5px'}}>
+        {extension.hasInstalled ? (<Button danger size='small' onClick={handleUninstall} disabled={extension.isUninstallable}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
+        <Tag className={styles.extensionTag} title="官方" color="green" icon={<i className={'mtbird-icon mtbird-safetycertificate ' + styles.extensionTagIcon} />}>官方</Tag>
+      </div>
     </Card>
   )
 }
