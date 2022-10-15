@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Tree } from "antd";
 import {
   MinusSquareOutlined,
@@ -34,6 +34,7 @@ const ComponentNames = {
   Shape: '形状'
 };
 
+// @ts-ignore
 import styles from "./style.module.less";
 
 interface ComponentDataNode extends DataNode {

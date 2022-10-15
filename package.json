@@ -27,9 +27,9 @@
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
+    "html-to-image": "^1.10.8"
   },
   "devDependencies": {
     "@mtbird/cli": "^0.0.1-beta.33",

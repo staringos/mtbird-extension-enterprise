@@ -6,6 +6,7 @@ import {
   IExtensionDTO,
   IComponentInstance,
 } from "@mtbird/shared/dist/types";
+// @ts-ignore
 import styles from "./style.module.less";
 import ComponentTreeNode from "./ComponentTreeNode";
 
@@ -14,7 +15,7 @@ interface ComponentDataNode extends DataNode {
   selected: boolean;
 }
 
-interface IProps {
+type IProps = {
   extension: IExtensionDTO;
   context: IExtensionContext;
   refresh: () => void;

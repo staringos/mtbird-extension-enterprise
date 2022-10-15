@@ -1,0 +1,52 @@
+.blockItem {
+  position: relative;
+  background-color: rgb(217, 217, 217);
+  min-height: 180px;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px rgb(39, 46, 58) solid;
+  display: flex;
+  flex-direction: column;
+
+  > .preview {
+    z-index: 1;
+  }
+
+  > .itemActions {
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    > .itemAction {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    > .itemAction:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.blockItem:hover {
+  cursor: pointer;
+}
+
+.blockItem.selected {
+  border: 1px #4af solid !important;
+
+  > .preview {
+    margin-top: -22px;
+  }
+}

@@ -32,6 +32,13 @@
         },
         "link": "feature",
         "feature": "enterprise.template-panel.feature"
+      },
+      {
+        "params": {
+          "name": "区块"
+        },
+        "link": "feature",
+        "feature": "enterprise.block-container-panel.feature"
       }
     ]
   }
