@@ -32,8 +32,8 @@
     "html-to-image": "^1.10.8"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.1-beta.33",
-    "@mtbird/shared": "^0.0.1-beta.33",
+    "@mtbird/cli": "^0.0.3-beta.6",
+    "@mtbird/shared": "^0.0.3-beta.6",
     "@types/react": "^18.0.17",
     "antd": "^4.22.3",
     "react": "^18.1.0",

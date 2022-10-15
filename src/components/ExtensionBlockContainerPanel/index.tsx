@@ -4,6 +4,7 @@ import {Button} from 'antd';
 // @ts-ignore
 import styles from "./style.module.less";
 import {IExtensionContext, IExtensionDTO} from "@mtbird/shared";
+import { SchemaGenerator } from '@mtbird/core';
 import {IComponentInstance} from "@mtbird/shared/dist/types/types/Component";
 import {BlockItem} from './BlockItem'
 
@@ -26,6 +27,8 @@ const ExtensionBlockContainerPanel: React.FC<IProps> = ({context}) => {
         context.currentComponent.map((item) => [item.id, true])
     );
 
+    SchemaGenerator.container([], {})
+
     const addBlankBlock = () => {
         context.addComponent({
             type: 'container',
@@ -41,7 +44,6 @@ const ExtensionBlockContainerPanel: React.FC<IProps> = ({context}) => {
     }
 
     const toTemplateTab = () => {
-        // @ts-ignore
         context.eventHub.emit(context.EVENT_KEYS.TOOLBAR_SWITCH, {
             target: '模版',
             params: {

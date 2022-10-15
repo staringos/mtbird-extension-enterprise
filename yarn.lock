@@ -1866,10 +1866,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@mtbird/cli@^0.0.1-beta.33":
-  version "0.0.1-beta.34"
-  resolved "https://registry.npmjs.org/@mtbird/cli/-/cli-0.0.1-beta.34.tgz#b5d52deb455accb1780a9f23801c66bd10152f38"
-  integrity sha512-zSlkXWNA/P9qshhYuVf+x/0BxL0Z/CpqF+FkwWW/16kO+kQg2pmxxQk12CzunQQbKGtJRtqVnRpCI0x7QmzdlA==
+"@mtbird/cli@^0.0.3-beta.6":
+  version "0.0.3-beta.6"
+  resolved "https://registry.npmjs.org/@mtbird/cli/-/cli-0.0.3-beta.6.tgz#3c8ffbca498e530761b11fac239350a1d05d080b"
+  integrity sha512-oGqlaRNUdWlkRjV0Fa5X0QDy3ElwfnbxmslqihxswbCm0spup9MQyE802OdySRMgZNRWHM2MIYdu4RTY133XNw==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/plugin-proposal-class-properties" "^7.18.6"
@@ -1878,7 +1878,7 @@
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-syntax-jsx" "^7.18.6"
     "@babel/preset-react" "^7.17.12"
-    "@mtbird/core" "^0.0.1-beta.34"
+    "@mtbird/core" "^0.0.3-beta.6"
     "@rollup/plugin-babel" "^5.3.1"
     "@rollup/plugin-commonjs" "^22.0.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -1891,7 +1891,6 @@
     "@typescript-eslint/parser" "^5.22.0"
     axios "^0.27.2"
     babel-preset-react-app "^10.0.1"
-    chalk "^4.1.2"
     concurrently "^7.3.0"
     cross-spawn "^7.0.3"
     eslint "^8.15.0"
@@ -1944,17 +1943,18 @@
     typescript "^4.6.4"
     yargs "^17.4.1"
 
-"@mtbird/core@^0.0.1-beta.34":
-  version "0.0.1-beta.34"
-  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.1-beta.34.tgz#dbb61228fb59daa671f83cbc91ff9af8705718ac"
-  integrity sha512-HuWgHygSSMbM1uka5D3mKhlz6w3/GDwp8QAs5MY4MrKn7AKmajrpPi0TiV6HRkGIVxnR3rHa8iAPGzAYEHaeXg==
+"@mtbird/core@^0.0.3-beta.6":
+  version "0.0.3-beta.6"
+  resolved "https://registry.npmjs.org/@mtbird/core/-/core-0.0.3-beta.6.tgz#fde7b1f9c19f2a502b2e1d51780ed239cb1ced86"
+  integrity sha512-/6dl65cYyOsebb4Tb+RZJGxuQjVMHVjwqEq6ZbGcLV75d7OtzkJ3Ye80Pv4st0ex59JdwfZWNHD+2w7t4fZ2uw==
   dependencies:
+    eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
 
-"@mtbird/shared@^0.0.1-beta.33":
-  version "0.0.1-beta.34"
-  resolved "https://registry.npmjs.org/@mtbird/shared/-/shared-0.0.1-beta.34.tgz#77885660b87958c413c85da77c31e3a691c5299b"
-  integrity sha512-qaqKgj6rFY/UTqzioNXDIr8upPdDFObS7xS1b0L0gtruTzBaeev1BTrr++WC3qaqi8D5oDSPZTX0+S0ZisAv2w==
+"@mtbird/shared@^0.0.3-beta.6":
+  version "0.0.3-beta.6"
+  resolved "https://registry.npmjs.org/@mtbird/shared/-/shared-0.0.3-beta.6.tgz#0622b9585f465181d89fd8279087595364295609"
+  integrity sha512-V3HrXC+Tno63dGMvy4iaPpAMC/3rZ30bIPGtrd7E185H0ZSXnbqx2W3KVNgpZOOsTpGnrboRKL6kp9QsONmcxA==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
@@ -3383,7 +3383,7 @@ chalk@^2.0.0, chalk@^2.0.1, chalk@^2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.0.0, chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -4785,6 +4785,11 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+
+eventemitter2@^6.4.9:
+  version "6.4.9"
+  resolved "https://registry.npmjs.org/eventemitter2/-/eventemitter2-6.4.9.tgz#41f2750781b4230ed58827bc119d293471ecb125"
+  integrity sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg==
 
 eventemitter3@^4.0.4:
   version "4.0.7"
