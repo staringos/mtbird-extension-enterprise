@@ -34,7 +34,6 @@ const ComponentNames = {
   Shape: '形状'
 };
 
-// @ts-ignore
 import styles from "./style.module.less";
 
 interface ComponentDataNode extends DataNode {

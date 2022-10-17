@@ -3,7 +3,6 @@ import {IComponentInstance} from "@mtbird/shared/dist/types/types/Component";
 import React, {useState} from "react";
 import {toPng} from "html-to-image";
 
-// @ts-ignore
 import styles from "./style.module.less";
 import {ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined} from "@ant-design/icons";
 import {Image} from "antd";
@@ -19,7 +18,7 @@ const DEFAULT_BLOCK_PREVIEW_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA
 export const BlockItem: React.FC<IProps> = ({context, block, isSelected}) => {
     const [previewUrl, setPreviewUrl] = useState<string>(DEFAULT_BLOCK_PREVIEW_URL);
 
-    const canvas = document.getElementById(block.id)
+    const canvas = block.id && document.getElementById(block.id)
     if (canvas) {
         toPng(canvas)
             .then(function (dataUrl) {
