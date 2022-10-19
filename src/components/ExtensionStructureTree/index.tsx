@@ -1,11 +1,7 @@
 import React from "react";
-import { Tree } from "antd";
-import type { DataNode } from "antd/es/tree";
-import {
-  IExtensionContext,
-  IExtensionDTO,
-  IComponentInstance,
-} from "@mtbird/shared/dist/types";
+import {Tree} from "antd";
+import type {DataNode} from "antd/es/tree";
+import {IComponentInstance, IExtensionContext, IExtensionDTO,} from "@mtbird/shared/dist/types";
 import styles from "./style.module.less";
 import ComponentTreeNode from "./ComponentTreeNode";
 
@@ -14,7 +10,7 @@ interface ComponentDataNode extends DataNode {
   selected: boolean;
 }
 
-interface IProps {
+type IProps = {
   extension: IExtensionDTO;
   context: IExtensionContext;
   refresh: () => void;
@@ -52,7 +48,7 @@ const ExtensionStructureTree = ({ extension, context, refresh }: IProps) => {
       const children = component.children;
       const selected = rootComponent !== component &&  selectedIds.get(component.id) === true;
       if (selected) {
-        selectedKeys.push(component.id)
+        selectedKeys.push(component.id || '')
       }
       const hasChildComponents =
         type === "container" &&
@@ -60,7 +56,7 @@ const ExtensionStructureTree = ({ extension, context, refresh }: IProps) => {
         Array.isArray(children) &&
         children.length > 0;
 
-        // Tree/TreeNode can only accept TreeNode as children. 
+        // Tree/TreeNode can only accept TreeNode as children.
       if (hasChildComponents) {
         return ComponentTreeNode({
           context,
@@ -80,7 +76,7 @@ const ExtensionStructureTree = ({ extension, context, refresh }: IProps) => {
   const nodes = renderTreeNodes([rootComponent]);
   return (
     <Tree
-     selectedKeys={selectedKeys}
+      selectedKeys={selectedKeys}
       defaultExpandAll={true}
       multiple={true}
       onSelect={onComponentNodeSelect}
@@ -88,7 +84,7 @@ const ExtensionStructureTree = ({ extension, context, refresh }: IProps) => {
       showLine={true}
     >
       {nodes}
-    </Tree> 
+    </Tree>
   );
 };
 
