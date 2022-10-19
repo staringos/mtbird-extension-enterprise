@@ -63,8 +63,8 @@ const TemplatePanel = ({context}: IProps) => {
     confirm({
       icon: <ExclamationCircleOutlined />,
       content: `确定要删除模版(${name})吗？`,
-      onOk() {
-        deleteTemplate(context, id)
+      onOk: async () => {
+        await deleteTemplate(context, id)
         message.success("操作成功!")
         refresh()
       },

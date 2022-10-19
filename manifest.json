@@ -19,14 +19,31 @@
           "feature": "enterprise.market.modal"
         }
     ],
-    "toolbars": [
+    "schemaTabs": [
       {
         "params": {
           "name": "结构"
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
-      }, {
+      }
+    ],
+    "toolbars": [
+      {
+        "params": {
+          "name": "区块"
+        },
+        "link": "feature",
+        "feature": "enterprise.template-panel.feature"
+      },
+      {
+        "params": {
+          "name": "弹窗"
+        },
+        "link": "feature",
+        "feature": "enterprise.template-panel.feature"
+      },
+      {
         "params": {
           "name": "模版"
         },
