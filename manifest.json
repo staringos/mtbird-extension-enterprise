@@ -26,29 +26,6 @@
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
-      }
-    ],
-    "toolbars": [
-      {
-        "params": {
-          "name": "区块"
-        },
-        "link": "feature",
-        "feature": "enterprise.template-panel.feature"
-      },
-      {
-        "params": {
-          "name": "弹窗"
-        },
-        "link": "feature",
-        "feature": "enterprise.template-panel.feature"
-      },
-      {
-        "params": {
-          "name": "模版"
-        },
-        "link": "feature",
-        "feature": "enterprise.template-panel.feature"
       },
       {
         "params": {
@@ -56,6 +33,15 @@
         },
         "link": "feature",
         "feature": "enterprise.block-container-panel.feature"
+      }
+    ],
+    "toolbars": [
+      {
+        "params": {
+          "name": "模版"
+        },
+        "link": "feature",
+        "feature": "enterprise.template-panel.feature"
       }
     ]
   }

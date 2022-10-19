@@ -20,7 +20,7 @@ const ModeOptions = [
 ]
 
 const TemplatePanel = ({context}: IProps) => {
-  const [scope, setScope] = useState<string>('team');
+  const [scope, setScope] = useState<string>('market');
   const [data, setData] = useState<any>({data: [], total: 0});
   const [pagination, setPagination] = useState({
     pageNum: 1,
