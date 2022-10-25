@@ -105,7 +105,6 @@ const ExtensionHistoryPanel: React.FC<ExtensionProps> = ({context}) => {
             null,
             authHeaders()
         )
-        console.log(res)
         if (res.status != 200) {
             throw res
         }
