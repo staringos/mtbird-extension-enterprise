@@ -33,6 +33,13 @@
         },
         "link": "feature",
         "feature": "enterprise.block-container-panel.feature"
+      },
+      {
+        "params": {
+          "name": "修改记录"
+        },
+        "link": "feature",
+        "feature": "enterprise.history.feature"
       }
     ],
     "toolbars": [

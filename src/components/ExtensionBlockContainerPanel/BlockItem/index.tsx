@@ -2,6 +2,7 @@ import {IExtensionContext} from "@mtbird/shared";
 import {IComponentInstance} from "@mtbird/shared/dist/types/types/Component";
 import React, {useState} from "react";
 import {toPng} from "html-to-image";
+import $ from 'classnames'
 
 import styles from "./style.module.less";
 import {ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined} from "@ant-design/icons";
@@ -26,12 +27,8 @@ export const BlockItem: React.FC<IProps> = ({context, block, isSelected}) => {
             });
     }
 
-    const classNames = [styles.blockItem]
-    if (isSelected) {
-        classNames.push(styles.selected)
-    }
-
-    return <div className={classNames.join(' ')} onClick={() => context.selectComponent([block])}>
+    return <div className={$(styles.blockItem, {[styles.selected]: isSelected})}
+                onClick={() => context.selectComponent([block])}>
         {isSelected &&
             <div className={styles.itemActions}>
                 <ArrowUpOutlined className={styles.itemAction} onClick={() => context.goLower()}/>
