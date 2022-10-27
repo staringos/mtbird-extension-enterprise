@@ -1866,10 +1866,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@mtbird/cli@^0.0.3-beta.7":
-  version "0.0.3-beta.7"
-  resolved "https://registry.yarnpkg.com/@mtbird/cli/-/cli-0.0.3-beta.7.tgz#2ed18cdedf27907f558120b79816271105090b58"
-  integrity sha512-pOKjF3337Fyc/R4Cguawwsb4waqnFMVA84cCZqr74b56poc/pAVItYON5biF77y/paCqk4lpM7MTaqdhy8Cx5Q==
+"@mtbird/cli@^0.0.3-beta.11":
+  version "0.0.3-beta.11"
+  resolved "https://registry.yarnpkg.com/@mtbird/cli/-/cli-0.0.3-beta.11.tgz#709d05c5da572f79be6ea4591747e9316c16d2a0"
+  integrity sha512-gS5SzXqs1v8t8KIfv1bmeE/MMXHn1UkEjNSUsifWvg1gbLjtWLeMtsNE49mSGdvyG1LdmA4GlqI2L2NHPVUzhQ==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/plugin-proposal-class-properties" "^7.18.6"
@@ -1878,7 +1878,7 @@
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-syntax-jsx" "^7.18.6"
     "@babel/preset-react" "^7.17.12"
-    "@mtbird/core" "^0.0.3-beta.7"
+    "@mtbird/core" "^0.0.3-beta.11"
     "@rollup/plugin-babel" "^5.3.1"
     "@rollup/plugin-commonjs" "^22.0.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -1943,18 +1943,18 @@
     typescript "^4.6.4"
     yargs "^17.4.1"
 
-"@mtbird/core@^0.0.3-beta.7":
-  version "0.0.3-beta.7"
-  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.7.tgz#b1f8366e8ea217612a7a4063d5beee0d4dd98104"
-  integrity sha512-N62Kl7LCUHaenVIcBc9bOuVZZEfNOUpCLfBja2cSJVcUv/Sjb53073qV28mH1QueY8rRze7m4WqBdThbIjscwQ==
+"@mtbird/core@^0.0.3-beta.11":
+  version "0.0.3-beta.11"
+  resolved "https://registry.yarnpkg.com/@mtbird/core/-/core-0.0.3-beta.11.tgz#b40a2b1394d9266c43c44d1d38c18ab9999f1120"
+  integrity sha512-o1pG9YYLZLjOi4mmQyy1z/WAnqAh6r0tJoPMDW6alnoBTUxJ+jksKUEyjrJyrWtWtpjxOrsFiaI0WKD1srxOtQ==
   dependencies:
     eventemitter2 "^6.4.9"
     nanoid "^4.0.0"
 
-"@mtbird/shared@^0.0.3-beta.7":
-  version "0.0.3-beta.7"
-  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.7.tgz#aab5fb3aec32d53a1d333f770189665fde5b99f2"
-  integrity sha512-fIxm9fn0OEJ1ck4+vP40Yj8R0aGCJ/h+sgpJieU4j8jlp3R3vBqg/Kb3rBaGGXhy0WP4nBm4BMowQH6+4VTJ6w==
+"@mtbird/shared@^0.0.3-beta.11":
+  version "0.0.3-beta.11"
+  resolved "https://registry.yarnpkg.com/@mtbird/shared/-/shared-0.0.3-beta.11.tgz#c6f2e69cff99535b34562dd606540a090621b88e"
+  integrity sha512-FXT7d5NKnzIv/QvjOEgiZGBW4ySa0FJ127G4z8vmwHhxaixNfCXTxEfN5M4i4YZ2+VrYiTt28kKkG8fMjfAuhQ==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
