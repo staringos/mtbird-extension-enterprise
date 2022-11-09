@@ -11,6 +11,8 @@ import type {
   IExtensionContext,
   IComponentInstance,
 } from "@mtbird/shared/dist/types";
+import styles from "./style.module.less";
+
 
 const { TreeNode } = Tree;
 
@@ -33,8 +35,6 @@ const ComponentNames = {
   Video: '视频',
   Shape: '形状'
 };
-
-import styles from "./style.module.less";
 
 interface ComponentDataNode extends DataNode {
   component: IComponentInstance;

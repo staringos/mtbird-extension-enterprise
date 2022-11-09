@@ -1,15 +1,14 @@
-.templatePanel {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 10px 5px;
-
+.templatePanelWrapper {
   .templatePanelList {
     display: grid;
     flex: 1;
     grid-gap: 5px;
     grid-template-columns: 65px 65px;
     grid-template-rows: repeat(auto-fill, 125px);
+  }
+
+  .templatePanelPagination {
+    margin-top: 5px;
   }
 
   :global {

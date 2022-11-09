@@ -49,6 +49,13 @@
         },
         "link": "feature",
         "feature": "enterprise.template-panel.feature"
+      },
+      {
+        "params": {
+          "name": "表单组件"
+        },
+        "link": "feature",
+        "feature": "enterprise.form-tab.feature"
       }
     ]
   }

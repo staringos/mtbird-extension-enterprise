@@ -5,7 +5,7 @@ import {ITemplateDTO} from '@mtbird/shared'
 
 interface IProps {
   onSelect: (template: ITemplateDTO) => void;
-  onDelete: (id: string, name: string) => void;
+  onDelete?: (id: string, name: string) => void;
   showDeleteBtn: boolean;
   template: ITemplateDTO;
 }
@@ -13,7 +13,7 @@ interface IProps {
 const TemplatePanelItem = ({template, onDelete, onSelect, showDeleteBtn}: IProps) => {
   const handleDelete = (e: any) => {
     e.stopPropagation()
-    onDelete(template.id, template.name)
+    onDelete && onDelete(template.id as string, template.name)
   } 
 
   return (<Card

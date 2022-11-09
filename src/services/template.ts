@@ -5,12 +5,13 @@ interface IPagination {
   pageSize: number;
 }
 
-export const getTemplateList = (context: IExtensionContext, scope: string, pagination: IPagination, teamId?: string | null) => {
+export const getTemplateList = (context: IExtensionContext, scope: string, pagination: IPagination, teamId?: string | null, componentName?: string | undefined) => {
   return context.request.get(process.env.API_URL + '/template/component', {
     params: {
       scope,
       ...pagination,
-      teamId
+      teamId,
+      componentName
     },
     headers: {
       Authorization: 'Bears ' + context.storage.getItem('AUTH_TOKEN')

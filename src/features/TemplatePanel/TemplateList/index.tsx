@@ -1,26 +1,22 @@
+import { ITemplateDTO, IExtensionContext } from '@mtbird/shared'
+import {Pagination} from 'antd'
 import React, { useEffect, useState } from 'react'
-import {Pagination, Radio, Modal, message} from 'antd'
-import styles from './style.module.less'
-import TemplatePanelItem from './TemplatePanelItem';
-import { ITemplateDTO } from '@mtbird/shared';
-import { deleteTemplate, getTemplateList } from 'src/services/template';
-import { IExtensionContext } from '@mtbird/shared';
+import { deleteTemplate, getTemplateList } from 'src/services/template'
+import TemplatePanelItem from '../TemplatePanelItem'
+import {Modal, message} from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import styles from './style.module.less'
 
 const { confirm } = Modal;
 
 interface IProps {
-  context: IExtensionContext
+  scope?: string;
+  componentName?: string;
+  showDeleteBtn: boolean;
+  context: IExtensionContext;
 }
 
-const ModeOptions = [
-  { label: '市场', value: 'market' },
-  { label: '团队', value: 'team' },
-  { label: '我的', value: 'my' },
-]
-
-const TemplatePanel = ({context}: IProps) => {
-  const [scope, setScope] = useState<string>('market');
+const TemplateList = ({showDeleteBtn, context, scope, componentName}: IProps) => {
   const [data, setData] = useState<any>({data: [], total: 0});
   const [pagination, setPagination] = useState({
     pageNum: 1,
@@ -32,12 +28,8 @@ const TemplatePanel = ({context}: IProps) => {
     message.success("操作成功!")
   }
 
-  const handleModeChange = (e: any) => {
-    setScope(e.target.value)
-  }
-
   const refresh = async () => {
-    const data = await getTemplateList(context, scope, pagination, context.storage.getItem('TSK'))
+    const data = await getTemplateList(context, scope as string, pagination, context.storage.getItem('TSK'), componentName)
     setData(data.data)
   }
 
@@ -75,20 +67,17 @@ const TemplatePanel = ({context}: IProps) => {
   }
 
   return (
-    <div className={styles.templatePanel}>
-      <Radio.Group options={ModeOptions} onChange={handleModeChange} value={scope} size="small" style={{ marginBottom: 8 }} optionType="button"
-        buttonStyle="solid">
-      </Radio.Group>
+    <div className={styles.templatePanelWrapper}>
       <div className={styles.templatePanelList}>
         {data?.data?.map((cur: any) => {
           return (
-            <TemplatePanelItem template={cur} key={cur.id} showDeleteBtn={scope !== 'market'} onDelete={handleToDelete} onSelect={handleSelect} />
+            <TemplatePanelItem template={cur} key={cur.id} showDeleteBtn={showDeleteBtn} onSelect={handleSelect} onDelete={handleToDelete} />
           )
         })}
       </div>
-      <Pagination size="small" current={pagination.pageNum} total={data.total} onChange={handlePageChange} />
+      <Pagination className={styles.templatePanelPagination} size="small" current={pagination.pageNum} total={data.total} onChange={handlePageChange} />
     </div>
   )
 }
 
-export default TemplatePanel
+export default TemplateList
