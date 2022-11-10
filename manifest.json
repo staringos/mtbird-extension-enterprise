@@ -1,7 +1,7 @@
 {
   "name": "mtbird-extension-enterprise",
   "title": "星搭企业级套件",
-  "version": "0.0.13",
+  "version": "0.0.18",
   "desc": "星搭企业级套件",
   "tags": [
       "拓展案例"
@@ -52,7 +52,7 @@
       },
       {
         "params": {
-          "name": "表单组件"
+          "name": "表单"
         },
         "link": "feature",
         "feature": "enterprise.form-tab.feature"

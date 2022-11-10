@@ -28,9 +28,8 @@ const FormTab = ({context}: IProps) => {
     if ((firstComponent as IComponentInstance).type === 'form') {
       if (mode !== 'components') {
         setMode('components')
-
         context.eventHub.emit(context.EVENT_KEYS.TOOLBAR_SWITCH, {
-          target: '表单组件'
+          target: '表单'
         })
       }
     } else {
