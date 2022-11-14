@@ -39,7 +39,7 @@ const ExtensionHistoryPanel: React.FC<ExtensionProps> = ({context}) => {
         return {
             id: item.id,
             pageId: item.pageId,
-            shortId: item.id.slice(0, 6),
+            shortId: item.id.slice(item.id.length - 6, item.id.length),
             avatar: item.creator.avatar || undefined,
             nickname: item.creator.nickname || 'User',
             // TODO: Use a open-source module to format date

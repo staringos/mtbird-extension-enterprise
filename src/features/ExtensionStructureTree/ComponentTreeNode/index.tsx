@@ -1,16 +1,9 @@
 import React from "react";
-import { Tree } from "antd";
-import {
-  MinusSquareOutlined,
-  CopyOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
-import type { DataNode } from "antd/es/tree";
+import {Tree} from "antd";
+import {CopyOutlined, DeleteOutlined, MinusSquareOutlined,} from "@ant-design/icons";
+import type {DataNode} from "antd/es/tree";
 
-import type {
-  IExtensionContext,
-  IComponentInstance,
-} from "@mtbird/shared/dist/types";
+import type {IComponentInstance, IExtensionContext,} from "@mtbird/shared/dist/types";
 import styles from "./style.module.less";
 
 
@@ -23,33 +16,19 @@ interface IProps {
   children?: React.ReactNode;
 }
 
-const ComponentNames = {
-  ContainerRoot: "页面根组件",
-  Button: "按钮",
-  Text: "文本",
-  ContainerBlock: "区块组件",
-  ButtonGroup: '按钮组',
-  Container: '容器',
-  Image: '图片',
-  SplitLine: '分割线',
-  Video: '视频',
-  Shape: '形状'
-};
-
 interface ComponentDataNode extends DataNode {
   component: IComponentInstance;
   selected: boolean;
 }
 
-export default function ComponentTreeNode({
+export const ComponentTreeNode : React.FC<IProps> = ({
   context,
   component,
   selected,
   children,
-}: IProps) {
-  const type = component.type;
-  const titleText = getTitleText(component);
-  const isLeaf = type !== "container";
+}) => {
+  const titleText = getTitleText(context, component);
+  const isLeaf = !Array.isArray(component.children) || component.children.length <= 0
 
   const copyDidClick = () => {
     context.copyComponent();
@@ -94,24 +73,23 @@ export default function ComponentTreeNode({
   );
 }
 
-function getTitleText(component: IComponentInstance) {
-  const componentName =
-    ComponentNames[component.componentName] || component.componentName;
-  if (component.type === "form" || component.componentName === "Text") {
-    const subtitleText = getSubtitleText(component);
-    return `${componentName}${subtitleText}`;
+function getTitleText(context: IExtensionContext, component: IComponentInstance) {
+  let componentName = context.registeredComponents && context.registeredComponents[component.componentName] && context.registeredComponents[component.componentName].title;
+
+  if (typeof componentName !== 'string' || componentName.length <= 0) {
+    componentName = component.componentName
+  }
+
+  if (typeof component.children === 'number' || typeof component.children === 'string') {
+    return `${componentName}${getSubtitleText(component)}`;
   } else {
     return componentName;
   }
-
-  function getSubtitleText(component: IComponentInstance) {
-    if (!component.children) {
-      return "";
-    }
+}
+function getSubtitleText(component: IComponentInstance) {
     let subtitleText = `${component.children}`;
     if (subtitleText.length > 4) {
-      subtitleText = subtitleText.substring(0, 4) + "…";
+        subtitleText = subtitleText.substring(0, 4) + "…";
     }
     return ` (${subtitleText})`;
-  }
 }

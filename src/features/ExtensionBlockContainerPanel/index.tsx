@@ -25,7 +25,7 @@ const ExtensionBlockContainerPanel: React.FC<IProps> = ({context}) => {
         context.currentComponent.map((item) => [item.id, true])
     );
 
-    const addBlankBlock = () => context.addComponent(SchemaGenerator.containerBlock([]))
+    const addBlankBlock = () => context.addComponent(SchemaGenerator.containerBlock([]) as IComponentInstance)
 
     const toTemplateTab = () => {
         context.eventHub.emit(context.EVENT_KEYS.TOOLBAR_SWITCH, {
