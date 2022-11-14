@@ -1,91 +1,91 @@
 import React from "react";
-import {Tree} from "antd";
+import {Tree, Empty} from "antd";
 import type {DataNode} from "antd/es/tree";
 import {IComponentInstance, IExtensionContext, IExtensionDTO,} from "@mtbird/shared/dist/types";
 import styles from "./style.module.less";
-import ComponentTreeNode from "./ComponentTreeNode";
+import {ComponentTreeNode} from "./ComponentTreeNode";
+import {IPageConfig} from "@mtbird/shared/dist/types/types/Page";
 
 interface ComponentDataNode extends DataNode {
-  component: IComponentInstance;
-  selected: boolean;
+    component: IComponentInstance;
+    selected: boolean;
 }
 
 type IProps = {
-  extension: IExtensionDTO;
-  context: IExtensionContext;
-  refresh: () => void;
+    extension: IExtensionDTO;
+    context: IExtensionContext;
+    refresh: () => void;
 }
 
-const ExtensionStructureTree = ({ extension, context, refresh }: IProps) => {
-  const getRootComponent = () => {
-    const page = context.page;
-    if (!page) {
-      return null;
+const ExtensionStructureTree : React.FC<IProps> = ({context}) => {
+    const getRootComponent = (page: IPageConfig | null) => {
+        if (!page) {
+            return null;
+        } else {
+            return page.data;
+        }
+    };
+
+    const selectedIds = new Map(
+        context.currentComponent.map((item) => [item.id, true])
+    );
+
+    const onComponentNodeSelect = (_: any, info: any) => {
+        const node: ComponentDataNode = info.node;
+        context.selectComponent([node.component]);
+    };
+
+    const renderTreeNodes = (rootComponent: IComponentInstance, components: IComponentInstance[], selectedKeys: string[]): React.ReactNode =>
+        components.map((component) => {
+            const children = component.children;
+            const selected = rootComponent !== component && selectedIds.get(component.id) === true;
+            if (selected) {
+                selectedKeys.push(component.id || '')
+            }
+            const hasChildComponents =
+                children &&
+                Array.isArray(children) &&
+                children.length > 0;
+
+            // Tree/TreeNode can only accept TreeNode as children.
+            if (hasChildComponents) {
+                return ComponentTreeNode({
+                    context,
+                    component,
+                    selected,
+                    children: renderTreeNodes(rootComponent, children, selectedKeys),
+                });
+            } else {
+                return ComponentTreeNode({
+                    context,
+                    component,
+                    selected,
+                });
+            }
+        });
+
+    const {page} = context
+    const rootComponent = getRootComponent(page);
+
+    const selectedKeys: string[] = []
+    const nodes = rootComponent && renderTreeNodes(rootComponent, [rootComponent], selectedKeys)
+
+    if (nodes) {
+        return (
+            <Tree
+                selectedKeys={selectedKeys}
+                defaultExpandAll={true}
+                multiple={true}
+                onSelect={onComponentNodeSelect}
+                className={styles.extensionStructureTree}
+                showLine={true}
+            >
+                {nodes}
+            </Tree>
+        );
     } else {
-      return page.data;
+        return <Empty></Empty>;
     }
-  };
-
-  const selectedIds = new Map(
-    context.currentComponent.map((item) => [item.id, true])
-  );
-
-  const onComponentNodeSelect = (_: any, info: any) => {
-    const node: ComponentDataNode = info.node;
-    context.selectComponent([node.component]);
-  };
-
-  const rootComponent = getRootComponent();
-  if (!rootComponent) {
-    return;
-  }
-
-  const selectedKeys:string[] = []
-
-  const renderTreeNodes = (components: IComponentInstance[]): React.ReactNode =>
-    components.map((component) => {
-      const type = component.type;
-      const children = component.children;
-      const selected = rootComponent !== component &&  selectedIds.get(component.id) === true;
-      if (selected) {
-        selectedKeys.push(component.id || '')
-      }
-      const hasChildComponents =
-        type === "container" &&
-        children &&
-        Array.isArray(children) &&
-        children.length > 0;
-
-        // Tree/TreeNode can only accept TreeNode as children.
-      if (hasChildComponents) {
-        return ComponentTreeNode({
-          context,
-          component,
-          selected,
-          children: renderTreeNodes(children),
-        });
-      } else {
-        return ComponentTreeNode({
-          context,
-          component,
-          selected,
-        });
-      }
-    });
-
-  const nodes = renderTreeNodes([rootComponent]);
-  return (
-    <Tree
-      selectedKeys={selectedKeys}
-      defaultExpandAll={true}
-      multiple={true}
-      onSelect={onComponentNodeSelect}
-      className={styles.extensionStructureTree}
-      showLine={true}
-    >
-      {nodes}
-    </Tree>
-  );
 };
 
 export default ExtensionStructureTree;
