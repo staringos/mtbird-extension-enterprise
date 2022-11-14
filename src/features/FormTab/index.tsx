@@ -10,9 +10,24 @@ interface IProps {
   context: IExtensionContext
 }
 
+const checkComponentIfForm = (tree: Map<string, IComponentInstance>, component: IComponentInstance): boolean => {
+  if (component.type === 'form') return true;
+
+  const loop = (cpt: IComponentInstance): boolean => {
+    if (!cpt.parent) return false;
+    const parent = tree.get(cpt.parent)
+    if (!parent) return false;
+    if (parent.type === 'form') return true;
+
+    return loop(parent)
+  }
+
+  return loop(component)
+}
+
 const FormTab = ({context}: IProps) => {
   const [mode, setMode] = useState('templates');
-  const {currentComponent, registeredComponents, addComponent} = context;
+  const {currentComponent, registeredComponents, addComponent, componentMap} = context;
 
   const handleModeChange = (e: RadioChangeEvent) => {
     setMode(e.target.value);
@@ -25,7 +40,12 @@ const FormTab = ({context}: IProps) => {
       return
     }
 
-    if ((firstComponent as IComponentInstance).type === 'form') {
+    console.log("current component changed:", componentMap, firstComponent)
+
+
+    const isForm = checkComponentIfForm(componentMap, firstComponent as IComponentInstance)
+
+    if (isForm) {
       if (mode !== 'components') {
         setMode('components')
         context.eventHub.emit(context.EVENT_KEYS.TOOLBAR_SWITCH, {
