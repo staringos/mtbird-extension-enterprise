@@ -36,6 +36,13 @@
       },
       {
         "params": {
+          "name": "CSS样式"
+        },
+        "link": "feature",
+        "feature": "enterprise.css-editor.feature"
+      },
+      {
+        "params": {
           "name": "修改记录"
         },
         "link": "feature",
