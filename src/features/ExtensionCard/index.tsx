@@ -75,8 +75,10 @@ const ExtensionCard = ({extension, context, refresh}: IProps) => {
     >
       <Meta className={styles.extensionMeta} title={extension.title} description={extension.desc} />
       <div style={{marginTop: '5px'}}>
-        {extension.hasInstalled ? (<Button danger size='small' onClick={handleUninstall} disabled={extension.isUninstallable}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
-        <Tag className={styles.extensionTag} title="官方" color="green" icon={<i className={'mtbird-icon mtbird-safetycertificate ' + styles.extensionTagIcon} />}>官方</Tag>
+        {extension.hasInstalled || extension.isPreInstalled ? (<Button danger size='small' onClick={handleUninstall} disabled={extension.isUninstallable}>卸载</Button>) : (<Button type="primary" size='small' onClick={handleInstall}>安装</Button>)}
+        {extension.isOfficial && (
+          <Tag className={styles.extensionTag} title="官方" color="green" icon={<i className={'mtbird-icon mtbird-safetycertificate ' + styles.extensionTagIcon} />}>官方</Tag>
+        )}
       </div>
     </Card>
   )
