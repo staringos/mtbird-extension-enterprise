@@ -19,10 +19,10 @@
           "feature": "enterprise.market.modal"
         }
     ],
-    "schemaTabs": [
+    "bottomTabs": [
       {
         "params": {
-          "name": "结构"
+          "name": "页面结构"
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
@@ -36,17 +36,19 @@
       },
       {
         "params": {
-          "name": "CSS样式"
-        },
-        "link": "feature",
-        "feature": "enterprise.css-editor.feature"
-      },
-      {
-        "params": {
           "name": "修改记录"
         },
         "link": "feature",
         "feature": "enterprise.history.feature"
+      }
+    ],
+    "schemaTabs": [
+      {
+        "params": {
+          "name": "CSS样式"
+        },
+        "link": "feature",
+        "feature": "enterprise.css-editor.feature"
       }
     ],
     "toolbars": [
