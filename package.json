@@ -22,7 +22,7 @@
     "start": "NODE_ENV=development mtbird start",
     "serve": "NODE_ENV=production mtbird serve --port 3333",
     "build": "NODE_ENV=production mtbird build",
-    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY2OTI3NzY3MCwiZXhwIjoxNjY5ODgyNDcwfQ.FONkZ76kjm5tjG8wMrwN6tZTkJtJ8rSZo2zcGBXILfQ",
+    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY3MDA2NTI2MCwiZXhwIjoxNjcwNjcwMDYwfQ.w3FqTIvV1fTI9PYsq1nF8PjuM_ckDD6sOqDmRPuhlPM",
     "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/cli",
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -33,9 +33,9 @@
     "html-to-image": "^1.10.8"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.25",
-    "@mtbird/core": "^0.0.3-beta.25",
-    "@mtbird/shared": "^0.0.3-beta.25",
+    "@mtbird/cli": "^0.0.3-beta.29",
+    "@mtbird/core": "^0.0.3-beta.29",
+    "@mtbird/shared": "^0.0.3-beta.29",
     "@types/react": "^18.0.17",
     "antd": "^4.22.3",
     "react": "^18.1.0",

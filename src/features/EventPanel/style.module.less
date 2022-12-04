@@ -1,0 +1,32 @@
+.eventPanelContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: white;
+  padding-top: 10px;
+
+  .eventPanelList {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: white;
+
+    .eventPanelItem {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gray-8);
+
+      .eventPanelItemControl {
+        width: 60px;
+        color: white;
+
+        :global {
+          .ant-btn {
+            color: white;
+            padding: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}
