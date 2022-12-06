@@ -5,6 +5,7 @@ import { IExtensionContext, IEvent } from '@mtbird/shared'
 import {ComponentEvent} from '@mtbird/core'
 import EventForm from './EventForm'
 import keys from 'lodash/keys'
+import isArray from 'lodash/isArray'
 
 const {EVENT_ACTION} = ComponentEvent
 
@@ -49,7 +50,7 @@ const EventPanel: React.FC<IProps> = ({context}) => {
     if (editing.action) {
       newEvents[value.action][editingIndex] = value
     } else {
-      if (newEvents[value.action]) {
+      if (isArray(newEvents[value.action])) {
         newEvents[value.action].push(value)
       } else {
         newEvents[value.action] = [value]
@@ -71,7 +72,7 @@ const EventPanel: React.FC<IProps> = ({context}) => {
       </div>
       <div className={styles.eventPanelList}>
         {keys(events).map((key: string) => {
-          return (events[key] || []).map((item: IEvent, i: number) => {
+          const renderItem = (item: IEvent, i: number) => {
             return (
               <div className={styles.eventPanelItem}>
                 <div>
@@ -82,8 +83,10 @@ const EventPanel: React.FC<IProps> = ({context}) => {
                   <Button type="text" disabled={isDisable} onClick={() => handleDelete(key, i)}><i className="mtbird-icon mtbird-delete"></i></Button>
                 </div>
               </div>)
-          })
-          return 
+          }
+
+          if (!isArray(events[key])) return ''
+          return (events[key] || []).map(renderItem)
         })}
       </div>
       {showForm && (<EventForm onFinish={handleFinish} editing={editing} context={context} onClose={handleCloseEdit} />)}

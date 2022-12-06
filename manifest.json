@@ -1,7 +1,7 @@
 {
   "name": "mtbird-extension-enterprise",
   "title": "星搭企业级套件",
-  "version": "0.0.23",
+  "version": "0.0.25",
   "desc": "星搭企业级套件",
   "tags": [
       "拓展案例"
@@ -45,7 +45,7 @@
     "schemaTabs": [
       {
         "params": {
-          "name": "事件"
+          "name": "动作"
         },
         "link": "feature",
         "feature": "enterprise.event-panel.feature"

@@ -22,7 +22,7 @@
     "start": "NODE_ENV=development mtbird start",
     "serve": "NODE_ENV=production mtbird serve --port 3333",
     "build": "NODE_ENV=production mtbird build",
-    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY3MDIyNTExMiwiZXhwIjoxNjcwODI5OTEyfQ.mvHBWgQz3Nw5pzn2HmmG0QzPALZflG3PTQK76M53OjM",
+    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY3MDMxNzE0MiwiZXhwIjoxNjcwOTIxOTQyfQ.Zth4o8e3jC0q89lk7mtqwtbLvZqSuw2b-RJXZwR_k8E",
     "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/cli",
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
