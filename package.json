@@ -37,7 +37,7 @@
     "@mtbird/core": "^0.0.3-beta.29",
     "@mtbird/shared": "^0.0.3-beta.29",
     "@types/react": "^18.0.17",
-    "antd": "^4.22.3",
+    "antd": "^4.24.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   }

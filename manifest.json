@@ -22,7 +22,7 @@
     "bottomTabs": [
       {
         "params": {
-          "name": "页面结构"
+          "name": "图层"
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
