@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import {Radio} from 'antd'
 import styles from './style.module.less'
-import { IExtensionContext } from '@mtbird/shared';
+import { IExtensionFeatureProps } from '@mtbird/shared';
 import TemplateList from './TemplateList';
-
-
-interface IProps {
-  context: IExtensionContext
-}
 
 const ModeOptions = [
   { label: '市场', value: 'market' },
@@ -15,7 +10,7 @@ const ModeOptions = [
   { label: '我的', value: 'my' },
 ]
 
-const TemplatePanel = ({context}: IProps) => {
+const TemplatePanel = ({context}: IExtensionFeatureProps) => {
   const [scope, setScope] = useState<string>('market');
 
   const handleModeChange = (e: any) => {

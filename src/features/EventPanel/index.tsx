@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Button, Alert} from 'antd'
 import styles from './style.module.less'
-import { IExtensionContext, IEvent } from '@mtbird/shared'
+import { IExtensionContext, IEvent, IExtensionFeatureProps } from '@mtbird/shared'
 import {ComponentEvent} from '@mtbird/core'
 import EventForm from './EventForm'
 import keys from 'lodash/keys'
@@ -14,7 +14,7 @@ interface IProps {
   context: IExtensionContext
 }
 
-const EventPanel: React.FC<IProps> = ({context}) => {
+const EventPanel: React.FC<IProps> = ({context}: IExtensionFeatureProps) => {
   const {currentComponent} = context
   const currentFirstComponent = currentComponent[0]
   const events = currentFirstComponent.events || {}

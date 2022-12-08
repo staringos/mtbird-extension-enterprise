@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from 'antd';
 import styles from "./style.module.less";
-import {IExtensionContext, IExtensionDTO} from "@mtbird/shared";
+import {IExtensionContext, IExtensionDTO, IExtensionFeatureProps} from "@mtbird/shared";
 import {SchemaGenerator} from '@mtbird/core';
 import {IComponentInstance} from "@mtbird/shared/dist/types/types/Component";
 import {BlockItem} from './BlockItem'
@@ -12,7 +12,7 @@ type IProps = {
     refresh: () => void;
 }
 
-const ExtensionBlockContainerPanel: React.FC<IProps> = ({context}) => {
+const ExtensionBlockContainerPanel: React.FC<IProps> = ({context}: IExtensionFeatureProps) => {
     const getAllBlocks = (): IComponentInstance[] => {
         const components = context.page?.data?.children;
         if (!Array.isArray(components)) {

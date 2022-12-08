@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect } from 'react'
 import {Form, Input, Button} from 'antd'
-import {ComponentEvent, getModalOptions, SchemaSelect} from '@mtbird/core'
+import {ComponentEvent, getModalOptions} from '@mtbird/core'
+import {SchemaSelect} from '@mtbird/ui'
 import {IExtensionContext, IPageConfig, IEvent} from '@mtbird/shared'
 import styles from './style.module.less'
 

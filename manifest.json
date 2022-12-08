@@ -26,20 +26,24 @@
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
-      },
-      {
+      }, {
         "params": {
           "name": "区块"
         },
         "link": "feature",
         "feature": "enterprise.block-container-panel.feature"
-      },
-      {
+      }, {
         "params": {
           "name": "修改记录"
         },
         "link": "feature",
         "feature": "enterprise.history.feature"
+      }, {
+        "params": {
+          "name": "变量"
+        },
+        "link": "feature",
+        "feature": "enterprise.variable-panel.feature"
       }
     ],
     "schemaTabs": [

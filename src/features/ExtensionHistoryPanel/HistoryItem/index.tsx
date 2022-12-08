@@ -2,7 +2,6 @@ import React from "react";
 import {HistoryItemDO} from "../types";
 import {Image} from "antd";
 import styles from './style.module.less'
-import {UserOutlined} from "@ant-design/icons";
 import $ from 'classnames'
 
 type IProps = {
@@ -37,7 +36,7 @@ export const HistoryItem: React.FC<IProps> = ({itemData, onRollback, isFirstItem
                         preview={false}
                         wrapperClassName={styles.avatar}
                         src={itemData.avatar}
-                        placeholder={<UserOutlined/>}
+                        placeholder={<i className="mtbird-icon mtbird-user" />}
                     />
                     <span className={styles.nickname}>{itemData.nickname}</span>
                     <span className={styles.historyId}>{itemData.shortId}</span>

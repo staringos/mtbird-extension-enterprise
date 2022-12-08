@@ -27,12 +27,14 @@
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+  },
   "dependencies": {
     "classnames": "^2.3.2",
     "html-to-image": "^1.10.8"
   },
   "devDependencies": {
+    "@mtbird/ui": "^0.0.3-beta.29",
     "@mtbird/cli": "^0.0.3-beta.29",
     "@mtbird/core": "^0.0.3-beta.29",
     "@mtbird/shared": "^0.0.3-beta.29",

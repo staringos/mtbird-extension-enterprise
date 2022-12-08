@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { deleteTemplate, getTemplateList } from 'src/services/template'
 import TemplatePanelItem from '../TemplatePanelItem'
 import {Modal, message} from 'antd'
-import { ExclamationCircleOutlined } from '@ant-design/icons';
+// import { ExclamationCircleOutlined } from '@ant-design/icons';
 import styles from './style.module.less'
 
 const { confirm } = Modal;
@@ -53,7 +53,7 @@ const TemplateList = ({showDeleteBtn, context, scope, componentName}: IProps) =>
 
   const handleToDelete = (id: string, name: string) => {
     confirm({
-      icon: <ExclamationCircleOutlined />,
+      icon: <i className="mtbird-icon mtbird-warning-circle" />,
       content: `确定要删除模版(${name})吗？`,
       onOk: async () => {
         await deleteTemplate(context, id)

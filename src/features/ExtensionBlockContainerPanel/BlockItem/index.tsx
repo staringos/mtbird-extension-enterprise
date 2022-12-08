@@ -5,7 +5,7 @@ import {toPng} from "html-to-image";
 import $ from 'classnames'
 
 import styles from "./style.module.less";
-import {ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined} from "@ant-design/icons";
+// import {ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined} from "@ant-design/icons";
 import {Image} from "antd";
 
 type IProps = {
@@ -31,10 +31,10 @@ export const BlockItem: React.FC<IProps> = ({context, block, isSelected}) => {
                 onClick={() => context.selectComponent([block])}>
         {isSelected &&
             <div className={styles.itemActions}>
-                <ArrowUpOutlined className={styles.itemAction} onClick={() => context.goLower()}/>
-                <ArrowDownOutlined className={styles.itemAction} onClick={() => context.goUpper()}/>
-                <CopyOutlined className={styles.itemAction} onClick={() => context.copyComponent()}/>
-                <DeleteOutlined className={styles.itemAction} onClick={() => context.deleteComponent()}/>
+                <i className={'mtbird-icon mtbird-arrowup ' + styles.itemAction} onClick={() => context.goLower()}/>
+                <i className={'mtbird-icon mtbird-arrowdown ' + styles.itemAction} onClick={() => context.goUpper()}/>
+                <i className={'mtbird-icon mtbird-file-copy ' + styles.itemAction} onClick={() => context.copyComponent()}/>
+                <i className={'mtbird-icon mtbird-delete ' + styles.itemAction} onClick={() => context.deleteComponent()}/>
             </div>}
         <Image
             preview={false}

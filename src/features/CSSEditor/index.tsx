@@ -3,14 +3,10 @@ import {Input, Alert} from 'antd'
 import get from 'lodash/get'
 import entries from 'lodash/entries'
 import styles from './style.module.less'
+import { IExtensionFeatureProps } from '@mtbird/shared'
 
-import { IExtensionContext } from '@mtbird/shared/dist/types'
 
-interface IProps {
-  context: IExtensionContext
-}
-
-const CSSEditor = ({context}: IProps) => {
+const CSSEditor = ({context}: IExtensionFeatureProps) => {
   const [currentEditKey, setCurrentEditKey] = useState<Array<string>>([])
   const [editValue, setEditValue] = useState('')
   const keyInputRef = useRef<any>()
@@ -83,7 +79,6 @@ const CSSEditor = ({context}: IProps) => {
   }
 
   useEffect(() => {
-    console.log("currentComponent:", context.currentComponent)
     const style = get(context, 'currentComponent[0].props.style')
     setStyle({...style})
 

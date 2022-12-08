@@ -12,11 +12,12 @@ import {
 } from './types'
 import {HistoryItem} from './HistoryItem'
 import styles from './style.module.less'
-import {ExclamationCircleOutlined} from "@ant-design/icons";
+// import {ExclamationCircleOutlined} from "@ant-design/icons";
+import {IExtensionFeatureProps} from '@mtbird/shared'
 
 const PAGE_LIMIT = 40
 
-const ExtensionHistoryPanel: React.FC<ExtensionProps> = ({context}) => {
+const ExtensionHistoryPanel: React.FC<ExtensionProps> = ({context}: IExtensionFeatureProps) => {
     const initialListData: HistoryListData = {
         pagination: {
             pageNum: 1,
@@ -116,7 +117,7 @@ const ExtensionHistoryPanel: React.FC<ExtensionProps> = ({context}) => {
 
     const rollbackDidClick = (itemData: HistoryItemDO) => {
         Modal.confirm({
-            icon: <ExclamationCircleOutlined/>,
+            icon: <i className="mtbird-icon mtbird-warning-circle"/>,
             title: '恢复修改',
             content: `确定要恢复修改 ${itemData.shortId} 吗？`,
             onOk: async () => {

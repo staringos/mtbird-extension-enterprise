@@ -1,6 +1,6 @@
 import React from "react";
 import {Tree} from "antd";
-import {CopyOutlined, DeleteOutlined, MinusSquareOutlined,} from "@ant-design/icons";
+// import {CopyOutlined, DeleteOutlined, MinusSquareOutlined,} from "@ant-design/icons";
 import type {DataNode} from "antd/es/tree";
 
 import type {IComponentInstance, IExtensionContext,} from "@mtbird/shared/dist/types";
@@ -44,10 +44,10 @@ export const ComponentTreeNode : React.FC<IProps> = ({
       {selected && (
         <>
           <div className={styles.action} onClick={copyDidClick}>
-            <CopyOutlined />
+            <i className="mtbird-icon mtbird-file-copy" />
           </div>
           <div className={styles.action} onClick={deleteDidClick}>
-            <DeleteOutlined />
+            <i className="mtbird-icon mtbird-delete" />
           </div>
         </>
       )}
@@ -60,7 +60,7 @@ export const ComponentTreeNode : React.FC<IProps> = ({
     component: component,
     selected,
     isLeaf,
-    switcherIcon: isLeaf ? <MinusSquareOutlined /> : undefined,
+    switcherIcon: isLeaf ? <i className="mtbird-icon mtbird-minus-square" /> : undefined,
   };
   return (
     <TreeNode

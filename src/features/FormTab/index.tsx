@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Radio, RadioChangeEvent, Button, Tooltip, message } from 'antd';
-import {IComponentInstance, IExtensionContext} from '@mtbird/shared';
+import {IComponentInstance, IExtensionFeatureProps} from '@mtbird/shared';
 import FormComponents from './components/FormComponents';
 import TemplateList from '../TemplatePanel/TemplateList';
 import styles from './style.module.less';
 import isArray from 'lodash/isArray'
-
-interface IProps {
-  context: IExtensionContext
-}
 
 const checkComponentIfForm = (tree: Map<string, IComponentInstance>, component: IComponentInstance): boolean => {
   if (component.type === 'form') return true;
@@ -25,7 +21,7 @@ const checkComponentIfForm = (tree: Map<string, IComponentInstance>, component: 
   return loop(component)
 }
 
-const FormTab = ({context}: IProps) => {
+const FormTab = ({context}: IExtensionFeatureProps) => {
   const [mode, setMode] = useState('templates');
   const {currentComponent, registeredComponents, addComponent, componentMap} = context;
 
