@@ -8,6 +8,7 @@ import FormTab from './features/FormTab';
 import CSSEditor from './features/CSSEditor';
 import EventPanel from './features/EventPanel';
 import VariablePanel from './features/VariablePanel';
+import DataPanel from './features/DataPanel';
 
 const activity = (context: IExtensionContext) => {
   context.registerFeature('enterprise.market.modal', ExtensionMarketModal);
@@ -19,6 +20,7 @@ const activity = (context: IExtensionContext) => {
   context.registerFeature('enterprise.event-panel.feature', EventPanel)
   context.registerFeature('enterprise.css-editor.feature', CSSEditor);
   context.registerFeature('enterprise.variable-panel.feature', VariablePanel);
+  context.registerFeature('enterprise.data-panel.feature', DataPanel);
 };
 
 export default activity;
