@@ -1,29 +1,39 @@
 import React from 'react'
 import {IDataModel, IDataModelField, IComponentInstanceCommon, IExtensionContext} from '@mtbird/shared'
 import {CollapsePanel, FormItem, SchemaSelect} from '@mtbird/ui'
-import { COLLAPSE_STYLE } from '../constants';
+import {COMPONENT_NAME} from '@mtbird/core'
+import { COLLAPSE_STYLE } from '../constants'
 
 interface IProps {
   currentFirstComponent: IComponentInstanceCommon;
-  dataContainerNode: IComponentInstanceCommon;
   context: IExtensionContext;
 }
 
-const FieldPanel = ({dataContainerNode, currentFirstComponent, context}: IProps) => {
-  const {variables, onChangeValue} = context
-  const {targetId} = dataContainerNode.data
+const FieldBindConfig = {
+  [COMPONENT_NAME.IMAGE]: 'props.src',
+  [COMPONENT_NAME.BUTTON]: 'children',
+  [COMPONENT_NAME.TEXT]: 'children',
+  [COMPONENT_NAME.VIDEO]: 'props.src',
+  [COMPONENT_NAME.ICON]: 'className',
+  [COMPONENT_NAME.SHAPE]: 'data.path',
+}
+
+const FieldPanel = ({currentFirstComponent, context}: IProps) => {
+  const {variables, onChangeValue, currentDataContainer} = context
+  const {targetId} = currentDataContainer?.data || {}
   const model = targetId ? variables.$models.find((model: IDataModel) => model.id === targetId) : undefined
   const fieldOptions = model ? model.DataModelField.map((cur: IDataModelField) => ({...cur, label: cur.displayName, value: cur.key})) : [];
 
   const handleFieldChange = (e: string) => {
     onChangeValue('data.fieldId', e)
-    onChangeValue('children', '${{$maps1Data.data.' + e + '}}')
+    
+    onChangeValue(FieldBindConfig[currentFirstComponent.componentName], '${{$maps1Data.data.' + e + '}}')
   }
 
   return (
     <CollapsePanel title="字段" defaultOpen={true} style={COLLAPSE_STYLE}>
       <FormItem label="选择字段">
-        <SchemaSelect options={fieldOptions} value={currentFirstComponent.data.fieldId} onChange={handleFieldChange} />
+        <SchemaSelect options={fieldOptions} value={currentFirstComponent.data?.fieldId} onChange={handleFieldChange} />
       </FormItem>
     </CollapsePanel>
   )

@@ -1,15 +1,15 @@
 import React from 'react'
 import {Alert} from 'antd'
 import styles from './style.module.less'
-import { IExtensionFeatureProps, IComponentInstance } from '@mtbird/shared'
-import {COMPONENT_NAME, getNodeFromTreeBranch} from '@mtbird/core'
+import { IExtensionFeatureProps } from '@mtbird/shared'
+import {COMPONENT_NAME, COMPONENT_TYPE} from '@mtbird/core'
 import DataSourcePanel from './DataSourcePanel'
 import FieldPanel from './FieldPanel'
 
 const Notice = <Alert message="请选择数据容器（表格、数据列表）或其子元素进行数据绑定, 不可以多选哦～" type="warning" showIcon closable />
 
 const DataPanel = ({context}: IExtensionFeatureProps) => {
-  const {currentComponent, componentMap} = context;
+  const {currentComponent, currentDataContainer} = context;
   if (!currentComponent || currentComponent.length !== 1) {
     return Notice
   }
@@ -20,10 +20,10 @@ const DataPanel = ({context}: IExtensionFeatureProps) => {
   const isDataContainer = currentFirstComponent.componentName === COMPONENT_NAME.DATA_LIST
 
   // 2. is data container's children? bind field avaiable
-  const dataContainerNode = getNodeFromTreeBranch(currentFirstComponent, componentMap, (cp: IComponentInstance) => cp.componentName === COMPONENT_NAME.DATA_LIST)
-  const isDataChild = !!dataContainerNode
+  // const dataContainerNode = getNodeFromTreeBranch(currentFirstComponent, componentMap, (cp: IComponentInstance) => cp.componentName === COMPONENT_NAME.DATA_LIST)
+  const isDataChild = !!currentDataContainer
 
-  if (!dataContainerNode || !dataContainerNode.data) return Notice; 
+  if (!currentDataContainer || !currentDataContainer.data) return Notice; 
 
   return (
     <div className={styles.dataPanelContainer}>
@@ -31,8 +31,9 @@ const DataPanel = ({context}: IExtensionFeatureProps) => {
         <DataSourcePanel context={context} currentFirstComponent={currentFirstComponent} />
       )}
 
-      {isDataChild && (
-        <FieldPanel context={context} dataContainerNode={dataContainerNode} currentFirstComponent={currentFirstComponent} />
+      {/* Container component cannot bind field */}
+      {isDataChild && currentFirstComponent.type !== COMPONENT_TYPE.CONTAINER && currentFirstComponent.componentName !== COMPONENT_NAME.DATA_LIST && (
+        <FieldPanel context={context} currentFirstComponent={currentFirstComponent} />
       )}
     </div>)
 }
