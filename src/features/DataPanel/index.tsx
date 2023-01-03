@@ -9,7 +9,7 @@ import FieldPanel from './FieldPanel'
 const Notice = <Alert message="请选择数据容器（表格、数据列表）或其子元素进行数据绑定, 不可以多选哦～" type="warning" showIcon closable />
 
 const DataPanel = ({context}: IExtensionFeatureProps) => {
-  const {currentComponent, currentDataContainer, refreshDataModel} = context;
+  const {currentComponent, currentDataContainer} = context;
   if (!currentComponent || currentComponent.length !== 1) {
     return Notice
   }
@@ -17,7 +17,7 @@ const DataPanel = ({context}: IExtensionFeatureProps) => {
   const currentFirstComponent = currentComponent[0]
 
   // 1. is data container itselfs? bind dataSource avaiable
-  const isDataContainer = currentFirstComponent.componentName === COMPONENT_NAME.DATA_LIST
+  const isDataContainer = currentFirstComponent.data?.isDataContainer
 
   // 2. is data container's children? bind field avaiable
   // const dataContainerNode = getNodeFromTreeBranch(currentFirstComponent, componentMap, (cp: IComponentInstance) => cp.componentName === COMPONENT_NAME.DATA_LIST)
@@ -47,7 +47,7 @@ const DataPanel = ({context}: IExtensionFeatureProps) => {
       )}
 
       {/* Container component cannot bind field */}
-      {isDataChild && currentFirstComponent.type !== COMPONENT_TYPE.CONTAINER && currentFirstComponent.componentName !== COMPONENT_NAME.DATA_LIST && (
+      {isDataChild && currentFirstComponent.type !== COMPONENT_TYPE.CONTAINER && !isDataContainer && (
         <FieldPanel context={context} currentFirstComponent={currentFirstComponent} />
       )}
     </div>)

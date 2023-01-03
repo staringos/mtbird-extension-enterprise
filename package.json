@@ -3,7 +3,7 @@
   "version": "0.0.1-beta.7",
   "description": "星搭企业级套件",
   "homepage": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "types": "dist/types",
@@ -22,7 +22,7 @@
     "start": "NODE_ENV=development mtbird start",
     "serve": "NODE_ENV=production mtbird serve --port 3333",
     "build": "NODE_ENV=production mtbird build",
-    "publish": "NODE_ENV=production mtbird publish --token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbDVpeDkzd2UwMDI5ZHc0emo5djBnNTFtIiwidGVhbUlkIjoiY2w2c3ZpcGFqMDkwN2oxczYxcWllNHY5YyIsImlhdCI6MTY3MDkwNDQzMiwiZXhwIjoxNjcxNTA5MjMyfQ.70F30n2j1WyArPnRM8cFqv0J9ClD9yP_4LBXSYq2oLk",
+    "publish": "NODE_ENV=production mtbird publish --token=",
     "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/cli & yarn link @mtbird/ui",
     "preDev": "lerna link & yarn run link",
     "test": "echo \"Error: run tests from root\" && exit 1"
