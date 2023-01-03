@@ -1,6 +1,6 @@
-# MTBird Extension Template
+# MtBird Extension Enterprise
 
-[星搭Mtbird](https://github.com/staringos/mtbird) 低代码平台企业级拓展 The enterprise extension for mtbird.
+[星搭MtBird](https://github.com/staringos/mtbird) 低代码平台企业级拓展 The enterprise extension for mtbird.
 
 <img src="https://mtbird-cdn.staringos.com/product/movies/example-mini-2.gif" />
 
