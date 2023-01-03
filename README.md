@@ -4,6 +4,8 @@
 
 <img src="https://mtbird-cdn.staringos.com/product/movies/example-mini-2.gif" />
 
+## 快速开始
+
 ```bash
 yarn
 yarn run start
