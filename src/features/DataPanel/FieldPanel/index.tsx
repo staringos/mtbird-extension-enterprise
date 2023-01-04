@@ -25,9 +25,16 @@ const FieldPanel = ({currentFirstComponent, context}: IProps) => {
   const fieldOptions = model ? model.DataModelField.map((cur: IDataModelField) => ({...cur, label: cur.displayName, value: cur.key})) : [];
 
   const handleFieldChange = (e: string) => {
+    // `DataList` component variable key
+    let key = '$maps1Data'
+
+    // `DataDetail` component variable key
+    if (currentDataContainer?.componentName === COMPONENT_NAME.DATA_DETAIL) {
+      key = '$detail' + (currentDataContainer?.data?.targetId || '') + 'Data'
+    }
+
     onChangeValue('data.fieldId', e)
-    
-    onChangeValue(FieldBindConfig[currentFirstComponent.componentName], '${{$maps1Data.data.' + e + '}}')
+    onChangeValue(FieldBindConfig[currentFirstComponent.componentName], '${{'+ key + '.data.' + e + '}}')
   }
 
   return (

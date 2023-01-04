@@ -2,7 +2,7 @@ import React from 'react'
 import {Alert, Button, message} from 'antd'
 import styles from './style.module.less'
 import { IExtensionFeatureProps } from '@mtbird/shared'
-import {COMPONENT_NAME, COMPONENT_TYPE} from '@mtbird/core'
+import {COMPONENT_TYPE} from '@mtbird/core'
 import DataSourcePanel from './DataSourcePanel'
 import FieldPanel from './FieldPanel'
 
