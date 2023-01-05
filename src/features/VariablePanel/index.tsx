@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {List} from '@mtbird/ui'
 import {IExtensionFeatureProps, IVariable} from '@mtbird/shared'
-import {Button} from 'antd'
+import {Button, Alert} from 'antd'
 import {DATA} from '@mtbird/core'
 
 import styles from './style.module.less'
@@ -43,34 +43,37 @@ const VariablePanel = ({context}: IExtensionFeatureProps) => {
   }
 
   const handleToChange = (data: Record<string, any>, i?: number) => {
-    setData(data);
+    setData(data as IVariable);
     setDataIndex(i as number);
     setShowEdit(true);
   }
 
   const handleDelete = (data: Record<string, any>, i: number | undefined) => {
-    const newVariables = [...(page.data.variables || [])]
+    if (!page) return
+    const newVariables = [...(page.data?.variables || [])]
     newVariables.splice(i as number, 1)
     onChangeValue('variables', newVariables,page.data.id)
   }
 
   const handleEditFinish = (data: IVariable) => {
-    let newVariables = [...(page.data.variables || [])]
+    if (!page) return
+    let newVariables = [...(page.data?.variables || [])]
     if (dataIndex === -1) {
       newVariables.push(data)
     } else {
       newVariables[dataIndex] = data
     }
 
-    onChangeValue('variables', newVariables, page.data.id)
+    onChangeValue('data.variables', newVariables, page.data.id)
     handleHide();
   }
 
   return (
     <div className={styles.variablePanel}>
       <div className={styles.variablePanelListArea}>
-        <Button size="small" type="primary" onClick={handleAdd}>新建变量</Button>
-        <List color="var(--color-text-4)" data={page.data.variables || []} columns={columns} onToChange={handleToChange} onDelete={handleDelete} />
+        <Alert message={`页面参数类型变量可以通过在浏览器URL中设置 [?变量名=默认值] 实现，如 [?id=clbkm]`} type="success" showIcon closable />
+        <Button size="small" type="primary" className={styles.variablePanelButton} onClick={handleAdd}>新建变量</Button>
+        <List color="var(--color-text-4)" data={page?.data?.data?.variables || []} columns={columns} onToChange={handleToChange} onDelete={handleDelete} />
       </div>
       {showEdit && (
         <div className={styles.variablePanelEditor}>

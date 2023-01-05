@@ -8,8 +8,8 @@ import keys from 'lodash/keys'
 
 export const VARIABLE_SOURCE_TYPE = {
   defaultValue: '初始值',
-  dataModel: '数据模型',
-  api: 'API',
+  // dataModel: '数据模型',
+  // api: 'API',
   pageParams: '页面参数'
 }
 
@@ -86,13 +86,12 @@ const VariableEditor = ({data, onFinish, onHide}: IProps) => {
         </Form.Item>
       }
 
-      {sourceType === 'defaultValue' && <Form.Item
-          label="初始值"
+      <Form.Item
+          label="默认值"
           name="defaultValue"
         >
-          <Input />
-        </Form.Item>
-      }
+        <Input />
+      </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">
