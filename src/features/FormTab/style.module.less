@@ -5,4 +5,27 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
+
+  :global {
+    .ant-radio-button-wrapper {
+      color: var(--color-text-4);
+    }
+
+    .ant-radio-button-wrapper-checked {
+      border-color: var(--gray-6);
+    }
+
+    .ant-radio-button-wrapper-disabled {
+      border-color: var(--gray-8);
+      color: var(--color-text-3);
+    }
+
+    .ant-radio-button-wrapper:not(:first-child)::before {
+      background-color: var(--gray-8);
+    }
+
+    .ant-radio-button-wrapper-checked {
+      color: var(--color-text-4);
+    }
+  }
 }
