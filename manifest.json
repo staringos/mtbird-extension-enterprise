@@ -72,6 +72,13 @@
     "toolbars": [
       {
         "params": {
+          "name": "组件库"
+        },
+        "link": "feature",
+        "feature": "enterprise.component-libs-panel.feature"
+      },
+      {
+        "params": {
           "name": "模版"
         },
         "link": "feature",
