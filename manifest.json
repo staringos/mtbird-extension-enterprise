@@ -3,21 +3,19 @@
   "title": "星搭企业级套件",
   "version": "0.0.29",
   "desc": "星搭企业级套件",
-  "tags": [
-      "拓展案例"
-  ],
+  "tags": ["拓展案例"],
   "contributes": {
     "toolbarsBottom": [
-        {
-          "sort": 3,
-          "params": {
-              "icon": "mtbird-icon mtbird-market",
-              "name": "拓展市场",
-              "width": "80%"
-          },
-          "link": "modal",
-          "feature": "enterprise.market.modal"
-        }
+      {
+        "sort": 3,
+        "params": {
+          "icon": "mtbird-icon mtbird-market",
+          "name": "拓展市场",
+          "width": "80%"
+        },
+        "link": "modal",
+        "feature": "enterprise.market.modal"
+      }
     ],
     "bottomTabs": [
       {
@@ -26,19 +24,22 @@
         },
         "link": "feature",
         "feature": "enterprise.struct-tree.feature"
-      }, {
+      },
+      {
         "params": {
           "name": "区块"
         },
         "link": "feature",
         "feature": "enterprise.block-container-panel.feature"
-      }, {
+      },
+      {
         "params": {
           "name": "修改记录"
         },
         "link": "feature",
         "feature": "enterprise.history.feature"
-      }, {
+      },
+      {
         "params": {
           "name": "变量"
         },

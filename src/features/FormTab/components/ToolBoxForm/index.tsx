@@ -1,6 +1,6 @@
-import React from 'react';
-import type { IComponentCommon, IExtensionContext } from '@mtbird/shared';
-import styles from './style.module.less';
+import React from "react";
+import type { IComponentCommon, IExtensionContext } from "@mtbird/shared";
+import styles from "./style.module.less";
 
 interface IProps {
   component: IComponentCommon;
@@ -20,4 +20,4 @@ const ToolBoxForm = ({ component, context }: IProps) => {
   );
 };
 
-export default ToolBoxForm
+export default ToolBoxForm;

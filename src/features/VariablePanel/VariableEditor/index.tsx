@@ -1,24 +1,26 @@
-import React, { useEffect } from 'react'
-import {Form, Button, Input} from 'antd'
-import {SchemaSelect} from '@mtbird/ui'
-import styles from './style.module.less'
-import {DATA} from '@mtbird/core'
-import {IVariable} from '@mtbird/shared'
-import keys from 'lodash/keys'
+import React, { useEffect } from "react";
+import { Form, Button, Input } from "antd";
+import { SchemaSelect } from "@mtbird/ui";
+import styles from "./style.module.less";
+import { DATA } from "@mtbird/core";
+import { IVariable } from "@mtbird/shared";
+import keys from "lodash/keys";
 
 export const VARIABLE_SOURCE_TYPE = {
-  defaultValue: '初始值',
+  defaultValue: "初始值",
   // dataModel: '数据模型',
   // api: 'API',
-  pageParams: '页面参数'
-}
+  pageParams: "页面参数",
+};
 
-export const VARIABLE_SOURCE_TYPE_OPTIONS = keys(VARIABLE_SOURCE_TYPE).map((cur: string) => {
-  return {
-    label: VARIABLE_SOURCE_TYPE[cur],
-    value: cur
+export const VARIABLE_SOURCE_TYPE_OPTIONS = keys(VARIABLE_SOURCE_TYPE).map(
+  (cur: string) => {
+    return {
+      label: VARIABLE_SOURCE_TYPE[cur],
+      value: cur,
+    };
   }
-})
+);
 
 interface IProps {
   data?: IVariable;
@@ -26,21 +28,21 @@ interface IProps {
   onFinish: (data: IVariable) => void;
 }
 
-const VariableEditor = ({data, onFinish, onHide}: IProps) => {
+const VariableEditor = ({ data, onFinish, onHide }: IProps) => {
   const [form] = Form.useForm();
-  const dataType = Form.useWatch('dataType', form);
-  const sourceType = Form.useWatch('sourceType', form);
+  const dataType = Form.useWatch("dataType", form);
+  const sourceType = Form.useWatch("sourceType", form);
 
   useEffect(() => {
     if (data) {
-      form.setFieldsValue(data)
+      form.setFieldsValue(data);
     }
-  }, [data])
+  }, [data]);
 
   const handleFinish = () => {
-    const data = form.getFieldsValue()
-    onFinish(data)
-  }
+    const data = form.getFieldsValue();
+    onFinish(data);
+  };
 
   return (
     <Form
@@ -56,7 +58,7 @@ const VariableEditor = ({data, onFinish, onHide}: IProps) => {
       <Form.Item
         label="变量名"
         name="name"
-        rules={[{ required: true, message: '请输入变量名称!' }]}
+        rules={[{ required: true, message: "请输入变量名称!" }]}
         disabled={data}
       >
         <Input />
@@ -65,31 +67,38 @@ const VariableEditor = ({data, onFinish, onHide}: IProps) => {
       <Form.Item
         label="变量类型"
         name="dataType"
-        rules={[{ required: true, message: '请选择变量类型!' }]}
+        rules={[{ required: true, message: "请选择变量类型!" }]}
       >
-        <SchemaSelect options={DATA.DATA_TYPE_OPTIONS} value={dataType} onChange={(value: string) => form.setFieldValue(value)} />
+        <SchemaSelect
+          options={DATA.DATA_TYPE_OPTIONS}
+          value={dataType}
+          onChange={(value: string) => form.setFieldValue(value)}
+        />
       </Form.Item>
 
       <Form.Item
         label="变量来源"
         name="sourceType"
-        rules={[{ required: true, message: '请选择来源类型!' }]}
+        rules={[{ required: true, message: "请选择来源类型!" }]}
       >
-        <SchemaSelect options={VARIABLE_SOURCE_TYPE_OPTIONS} value={sourceType} onChange={(value: string) => form.setFieldValue(value)} />
+        <SchemaSelect
+          options={VARIABLE_SOURCE_TYPE_OPTIONS}
+          value={sourceType}
+          onChange={(value: string) => form.setFieldValue(value)}
+        />
       </Form.Item>
 
-      {sourceType === 'dataModels' && <Form.Item
-          label="数据模型"
-          name="dataModelsId"
-        >
-          <SchemaSelect options={VARIABLE_SOURCE_TYPE_OPTIONS} value={sourceType} onChange={(value: string) => form.setFieldValue(value)} />
+      {sourceType === "dataModels" && (
+        <Form.Item label="数据模型" name="dataModelsId">
+          <SchemaSelect
+            options={VARIABLE_SOURCE_TYPE_OPTIONS}
+            value={sourceType}
+            onChange={(value: string) => form.setFieldValue(value)}
+          />
         </Form.Item>
-      }
+      )}
 
-      <Form.Item
-          label="默认值"
-          name="defaultValue"
-        >
+      <Form.Item label="默认值" name="defaultValue">
         <Input />
       </Form.Item>
 
@@ -97,12 +106,12 @@ const VariableEditor = ({data, onFinish, onHide}: IProps) => {
         <Button type="primary" htmlType="submit">
           提交
         </Button>
-        <Button type="default" onClick={onHide} style={{marginLeft: 10}}>
+        <Button type="default" onClick={onHide} style={{ marginLeft: 10 }}>
           取消
         </Button>
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default VariableEditor
+export default VariableEditor;

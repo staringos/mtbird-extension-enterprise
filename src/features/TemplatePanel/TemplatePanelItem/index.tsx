@@ -1,7 +1,7 @@
-import React from 'react'
-import {Card} from 'antd'
-import styles from './style.module.less'
-import {ITemplateDTO} from '@mtbird/shared'
+import React from "react";
+import { Card } from "antd";
+import styles from "./style.module.less";
+import { ITemplateDTO } from "@mtbird/shared";
 
 interface IProps {
   onSelect: (template: ITemplateDTO) => void;
@@ -10,26 +10,42 @@ interface IProps {
   template: ITemplateDTO;
 }
 
-const TemplatePanelItem = ({template, onDelete, onSelect, showDeleteBtn}: IProps) => {
+const TemplatePanelItem = ({
+  template,
+  onDelete,
+  onSelect,
+  showDeleteBtn,
+}: IProps) => {
   const handleDelete = (e: any) => {
-    e.stopPropagation()
-    onDelete && onDelete(template.id as string, template.name)
-  } 
+    e.stopPropagation();
+    onDelete && onDelete(template.id as string, template.name);
+  };
 
-  return (<Card
-    className={styles.templatePanelItem}
-    hoverable
-    onClick={() => onSelect(template)}
-    cover={<img className={styles.avatarImage} alt="example" src={template.avatar || 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'} />}
-  >
-    <Card.Meta title={template.name} />
+  return (
+    <Card
+      className={styles.templatePanelItem}
+      hoverable
+      onClick={() => onSelect(template)}
+      cover={
+        <img
+          className={styles.avatarImage}
+          alt="example"
+          src={
+            template.avatar ||
+            "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          }
+        />
+      }
+    >
+      <Card.Meta title={template.name} />
 
-    {showDeleteBtn && (
-      <div className={styles.deleteButton} onClick={handleDelete}>
-        <i className="mtbird-icon mtbird-delete" />
-      </div>
-    )}
-  </Card>)
-}
+      {showDeleteBtn && (
+        <div className={styles.deleteButton} onClick={handleDelete}>
+          <i className="mtbird-icon mtbird-delete" />
+        </div>
+      )}
+    </Card>
+  );
+};
 
-export default TemplatePanelItem
+export default TemplatePanelItem;

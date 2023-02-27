@@ -1,1 +1,1 @@
-export const COLLAPSE_STYLE = {color: 'white'}
+export const COLLAPSE_STYLE = { color: "white" };
