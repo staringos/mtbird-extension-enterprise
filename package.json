@@ -25,7 +25,8 @@
     "publish": "NODE_ENV=production mtbird publish --token=",
     "link": "yarn link @mtbird/core & yarn link @mtbird/shared & yarn link @mtbird/cli & yarn link @mtbird/ui",
     "preDev": "lerna link & yarn run link",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "lint": "yarn prettier --write ."
   },
   "peerDependencies": {},
   "dependencies": {
@@ -33,10 +34,10 @@
     "html-to-image": "^1.10.8"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.37",
-    "@mtbird/core": "^0.0.3-beta.37",
-    "@mtbird/shared": "^0.0.3-beta.37",
-    "@mtbird/ui": "^0.0.3-beta.37",
+    "@mtbird/cli": "^0.0.3-beta.44",
+    "@mtbird/core": "^0.0.3-beta.44",
+    "@mtbird/shared": "^0.0.3-beta.44",
+    "@mtbird/ui": "^0.0.3-beta.44",
     "@types/react": "^18.0.17",
     "antd": "^5.1.4",
     "prettier": "^2.8.4",
