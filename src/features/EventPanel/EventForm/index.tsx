@@ -112,7 +112,7 @@ const EventForm = ({ context, onClose, editing, onFinish }: IProps) => {
               form.setFieldValue("pageId", value);
               if (type === "jump-router") {
                 form.setFieldValue(
-                  "pageRoute",
+                  "routeKey",
                   context.pageList.find((cur) => cur.id === value)?.routeKey
                 );
               }

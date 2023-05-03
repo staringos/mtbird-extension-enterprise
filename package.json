@@ -34,10 +34,10 @@
     "html-to-image": "^1.10.8"
   },
   "devDependencies": {
-    "@mtbird/cli": "^0.0.3-beta.44",
-    "@mtbird/core": "^0.0.3-beta.44",
-    "@mtbird/shared": "^0.0.3-beta.44",
-    "@mtbird/ui": "^0.0.3-beta.44",
+    "@mtbird/cli": "^0.0.3-beta.63",
+    "@mtbird/core": "^0.0.3-beta.63",
+    "@mtbird/shared": "^0.0.3-beta.63",
+    "@mtbird/ui": "^0.0.3-beta.63",
     "@types/react": "^18.0.17",
     "antd": "^5.1.4",
     "prettier": "^2.8.4",
