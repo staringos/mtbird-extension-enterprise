@@ -103,12 +103,20 @@ const EventForm = ({ context, onClose, editing, onFinish }: IProps) => {
           <Input className={styles.schemaFormItem} />
         </EventFormItem>
       )}
-      {type === "link-page" && (
+      {(type === "link-page" || type === "jump-router") && (
         <EventFormItem label="选择页面" value="pageId">
           <SchemaSelect
             className={styles.schemaFormItem}
             options={pageListOptions}
-            onChange={(value: string) => form.setFieldValue("pageId", value)}
+            onChange={(value: string) => {
+              form.setFieldValue("pageId", value);
+              if (type === "jump-router") {
+                form.setFieldValue(
+                  "pageRoute",
+                  context.pageList.find((cur) => cur.id === value)?.routeKey
+                );
+              }
+            }}
           />
         </EventFormItem>
       )}
