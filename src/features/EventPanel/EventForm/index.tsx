@@ -103,7 +103,8 @@ const EventForm = ({ context, onClose, editing, onFinish }: IProps) => {
           <Input className={styles.schemaFormItem} />
         </EventFormItem>
       )}
-      {(type === "link-page" || type === "jump-router") && (
+
+      {type === "link-page" && (
         <EventFormItem label="选择页面" value="pageId">
           <SchemaSelect
             className={styles.schemaFormItem}
@@ -113,9 +114,25 @@ const EventForm = ({ context, onClose, editing, onFinish }: IProps) => {
               if (type === "jump-router") {
                 form.setFieldValue(
                   "routeKey",
-                  context.pageList.find((cur) => cur.id === value)?.routeKey
+                  context.pageList.find((cur: any) => cur.id === value)
+                    ?.routeKey
                 );
               }
+            }}
+          />
+        </EventFormItem>
+      )}
+
+      {type === "jump-router" && (
+        <EventFormItem label="选择路由" value="routeKey">
+          <SchemaSelect
+            className={styles.schemaFormItem}
+            options={pageListOptions}
+            onChange={(value: string) => {
+              form.setFieldValue(
+                "routeKey",
+                context.pageList.find((cur: any) => cur.id === value)?.routeKey
+              );
             }}
           />
         </EventFormItem>
